@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlockChain
 {
-    public class Class1
+    class WebServer
     {
     }
 }
