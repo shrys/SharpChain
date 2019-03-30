@@ -7,9 +7,8 @@ using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace BlockChain
+namespace SharpChain
 {
     public class BlockChain
     {
@@ -52,6 +51,9 @@ namespace BlockChain
                 //Check htat the Proff of Work is correct
                 if (!IsValidProof(lastBlock.Proof, block.Proof, lastBlock.PreviousHash))
                     return false;
+
+                lastBlock = block;
+                currentIndex++;
             }
 
             return true;
@@ -68,7 +70,7 @@ namespace BlockChain
                 var request = (HttpWebRequest)WebRequest.Create(url);
                 var response = (HttpWebResponse)request.GetResponse();
 
-                if (response.StatusCode != HttpStatusCode.OK)
+                if (response.StatusCode == HttpStatusCode.OK)
                 {
                     var model = new
                     {
@@ -190,7 +192,7 @@ namespace BlockChain
 
             builder.Insert(0, $"{nodes.Count()} new nodes have been added: ");
             string result = builder.ToString();
-            return result;
+            return result.Substring(0, result.Length - 2);
         }
 
         internal string Consensus()

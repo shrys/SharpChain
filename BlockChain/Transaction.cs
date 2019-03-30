@@ -1,4 +1,4 @@
-﻿namespace BlockChain
+﻿namespace SharpChain
 {
     class Transaction
     {

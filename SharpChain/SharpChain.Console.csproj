@@ -48,5 +48,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BlockChain\BlockChain.csproj">
+      <Project>{874d7f7e-bf34-4e85-b267-fa02ad4a600f}</Project>
+      <Name>BlockChain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
